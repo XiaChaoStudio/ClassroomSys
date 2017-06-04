@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.devMode" value="true"/>
+	<package name="user" namespace="/user" extends="struts-default">
+		
+		<action name="user_*" class="userAction" method="{1}">
+			<result name="login_success" type="redirect">/users/Users_login_success.jsp</result>
+			<result name="input">/users/Users_login.jsp</result>
+			<result name="logout_success" type="redirect">/users/Users_login.jsp</result>
+			<result name="query_success">/users/selfInfo.jsp</result>
+			<result name="list_success">/users/listUser.jsp</result>
+			<result name="delete_success" >/users/User_delete_success.jsp</result>
+			<result name="regist_success" >/users/Users_login.jsp</result>
+			<result name="regist_fail" >/users/Users_regist.jsp</result>
+			<result name="alterpass_success">/users/Users_alterpass_success.jsp</result>
+			<result name="alterpass_fail" >/users/Users_alterpass.jsp</result>
+			<result name="queryInfo_success" >/users/Users_alterInfo.jsp</result>
+			<result name="alterInfo_success" type="redirectAction">user_listAll.action</result>
+			<result name="send_fail" >/users/Users_forget.jsp</result>
+			<result name="confirm_success" >/WEB-INF/Users_update.jsp</result>
+			<result name="update_success" type="redirect">/users/Users_login_success.jsp</result>
+		</action>
+	</package>
+	
+	<package name="classroom" namespace="/classroom" extends="struts-default">
+		<action name="classroom_*" method="{1}" class="classroomAction">
+			<result name="list_success">/classrooms/listClassroom.jsp</result>
+			<result name="add_success1" type="redirectAction">classroom_listAll?kind=1</result>
+			<result name="add_success2" type="redirectAction">classroom_listAll?kind=2</result>
+			<result name="add_fail1">/classrooms/Classrooms_add1.jsp</result>
+			<result name="add_fail2">/classrooms/Classrooms_add2.jsp</result>
+			<result name="short_query_success">/classrooms/Classrooms_borrow1.jsp</result>
+			<result name="long_query_success">/classrooms/Classrooms_borrow2.jsp</result>
+			<result name="delete_success1" >/classrooms/Classroom_delete_success1.jsp</result>
+			<result name="delete_success2" >/classrooms/Classroom_delete_success2.jsp</result>
+			<result name="find_success">/classrooms/listClassroom.jsp</result>
+			<result name="find_null">/classrooms/listClassroom_find_null.jsp</result>
+			<result name="find_invalid">/classrooms/listClassroom_find_invalid.jsp</result>
+			<result name="before_success">/classrooms/Classrooms_alter.jsp</result>
+			<result name="alter_success1" type="redirectAction">classroom_listAll?kind=1</result>
+			<result name="alter_success2" type="redirectAction">classroom_listAll?kind=2</result>
+		</action>
+	</package>
+	
+	<package name="borrow" namespace="/borrow" extends="struts-default">
+		<action name="borrow_*" method="{1}" class="borrowAction">
+			<result name="borrow_success1">/classrooms/Classroom_borrow_success1.jsp</result>
+			<result name="borrow_success2">/classrooms/Classroom_borrow_success2.jsp</result>
+			<result name="list_success">/borrow/listRecord.jsp</result>
+			<result name="cancel_success0" >/borrow/cancel_success0.jsp</result>
+			<result name="cancel_success1" >/borrow/cancel_success1.jsp</result>
+			<result name="agree_success0" type="redirectAction">borrow_listAll.action?islonguse=0</result>
+			<result name="agree_success1" type="redirectAction">borrow_listAll.action?islonguse=1</result>
+			<result name="invalid_success" type="redirectAction">borrow_listAll.action?islonguse=0</result>
+			<result name="find_success">/borrow/listRecord.jsp</result>
+			<result name="find_null">/borrow/listRecord_find_null.jsp</result>
+		</action>
+	</package>
+</struts>

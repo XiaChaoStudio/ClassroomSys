@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.xc.domain.User">
+		<id name="uid">
+			<generator class="assigned"/>
+		</id>
+		
+		<property name="upassword"/>
+		<property name="uemail"/>
+		<property name="deptname"/>
+		<property name="identify"/>
+		<property name="status"/>
+		<property name="activecode"/>
+		<property name="updatetime"/>
+	<!-- <many-to-one name="department" class="com.xc.domain.Department" column="depart_id"/> -->	</class>
+</hibernate-mapping>
